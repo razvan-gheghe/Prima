@@ -1,0 +1,29 @@
+{
+    "sap.app": {
+      "id": "myapp",
+      "type": "application",
+      "i18n": "i18n/i18n.properties",
+      "applicationVersion": {
+        "version": "1.0.0"
+      }
+    },
+    "sap.ui5": {
+      "rootView": {
+        "viewName": "myapp.view.Main",
+        "type": "XML"
+      },
+      "dependencies": {
+        "minUI5Version": "1.60.0",
+        "libs": {
+          "sap.m": {}
+        }
+      },
+      "models": {
+        "": {
+          "type": "sap.ui.model.json.JSONModel",
+          "settings": {}
+        }
+      }
+    }
+  }
+  

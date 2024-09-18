@@ -1,0 +1,11 @@
+{
+    "name": "prima",
+    "version": "1.0.0",
+    "description": "SAPUI5 Manual, because of corporate restrictions. No yeoman",
+    "scripts": {
+        "start": "ui5 serve --open webapp/index.html"
+    },
+    "devDependencies": {
+        "@ui5/cli": "^4.0.8"
+    }
+}

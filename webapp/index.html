@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>My SAPUI5 App</title>
+  
+  <!-- Încarcă librăria SAPUI5 -->
+  <script
+    id="sap-ui-bootstrap"
+    src="https://ui5.sap.com/resources/sap-ui-core.js"
+    data-sap-ui-libs="sap.m"
+    data-sap-ui-theme="sap_fiori_3"
+    data-sap-ui-async="true"
+    data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
+    data-sap-ui-resourceroots='{
+        "myapp": "./"
+    }'>
+  </script>
+</head>
+
+<body class="sapUiBody">
+  <!-- Container pentru aplicația noastră UI5 -->
+  <div data-sap-ui-component data-name="myapp" data-id="container"></div>
+</body>
+</html>

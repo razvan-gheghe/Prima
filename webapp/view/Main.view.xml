@@ -1,0 +1,106 @@
+<mvc:View
+  controllerName="myapp.controller.Main"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  xmlns:smartTable="sap.ui.comp.smarttable"
+  xmlns:smartFilter="sap.ui.comp.smartfilterbar">  
+
+  <App>
+    <Page title="UI5 Simple App">
+      <content>
+      
+        <!-- Prima secțiune: butoane și input -->
+        <Panel headerText="Model Input Section">
+          <VBox>
+            <Text text="Hello, SAPUI5!" />
+            <Button text="Click Me" press="onButtonPress" />
+            
+            <!-- Câmp de introducere -->
+            <Input id="myInputField" placeholder="Enter your name" />
+            <Button text="Show Input" press="onShowInputPress" />
+
+            <!-- Model JSON fields -->
+            <Label text="Name from model:" />
+            <Input value="{/recipient/name}" placeholder="Enter name from model" />
+            <Label text="Email from model:" />
+            <Input value="{/recipient/email}" placeholder="Enter email" />
+            <Label text="Address from model:" />
+            <Input value="{/recipient/address}" placeholder="Enter address" />
+            <Button text="Show Name" press="onShowNamePress" />
+            <Button text="Reset Name" press="onResetNamePress" />
+          </VBox>
+        </Panel>
+
+        <!-- Secțiunea pentru SmartTable și butonul de adăugare -->
+        <Panel headerText="Recipients Section">
+          <VBox>
+            <!-- Buton pentru a adauga un nou recipient -->
+            <Button text="Add Recipient" press="onOpenAddDialog" />
+
+            <!-- Dialogul pentru a introduce datele -->
+            <Dialog id="addRecipientDialog" title="Add Recipient" stretch="true">
+              <content>
+                <VBox>
+                  <Label text="Name" />
+                  <Input value="{/newRecipient/name}" placeholder="Enter name" />
+                  <Label text="Email" />
+                  <Input value="{/newRecipient/email}" placeholder="Enter email" type="Email" />
+                  <Label text="Address" />
+                  <Input value="{/newRecipient/address}" placeholder="Enter address" />
+                  <Label text="Phone" />
+                  <Input value="{/newRecipient/phone}" placeholder="Enter phone" type="Number" maxLength="6"/>
+                </VBox>
+              </content>
+              <beginButton>
+                <Button text="Save" press="onSaveRecipient" />
+              </beginButton>
+              <endButton>
+                <Button text="Cancel" press="onCloseDialog" />
+              </endButton>
+            </Dialog>
+
+            <!-- SmartTable pentru afisarea datelor din model JSON -->
+            <smartTable:SmartTable 
+              id="recipientSmartTable"
+              tableType="ResponsiveTable"
+              useVariantManagement="true"
+              useTablePersonalisation="true"
+              header="Recipients"
+              showRowCount="true"
+              enableAutoBinding="true">
+              
+              <Table items="{/recipients}">
+                <columns>
+                  <Column>
+                    <Text text="Name" />
+                  </Column>
+                  <Column>
+                    <Text text="Email" />
+                  </Column>
+                  <Column>
+                    <Text text="Address" />
+                  </Column>
+                  <Column>
+                    <Text text="Phone" />
+                  </Column>
+                </columns>
+                <items>
+                  <ColumnListItem>
+                    <cells>
+                      <Text text="{name}" />
+                      <Text text="{email}" />
+                      <Text text="{address}" />
+                      <Text text="{phone}" />
+                    </cells>
+                  </ColumnListItem>
+                </items>
+              </Table>
+            </smartTable:SmartTable>
+          </VBox>
+        </Panel>
+
+      </content>
+    </Page>
+  </App>
+</mvc:View>
